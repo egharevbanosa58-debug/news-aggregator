@@ -1,0 +1,223 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  /* background: var(--background); */
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+  position: relative;
+  scroll-behavior: smooth;
+}
+
+.nav-banner {
+  border-bottom: 0.51px solid rgb(225, 225, 225);
+  position: fixed;
+  z-index: 999;
+  backdrop-filter: blur(10px);
+  background-color: rgba(255, 255, 255, 0.669);
+}
+
+.cont:hover .nav{
+  visibility: visible;
+  opacity: 1;
+
+}
+
+.nav {
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity .4s ease;
+  position: absolute;
+  right: 10;
+  transform: translateY(25px);
+}
+
+.fi-menu:hover{
+  transform: rotate(360deg);
+  transition: ease-in .4s;
+}
+
+.fi-menu:hover.nav{
+  display: none;
+}
+
+.nav-btn{
+  width: 100%;
+  border-radius: 10px;
+  padding: 0.7rem;
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+.nav-btn:hover{
+  /* background-color: rgba(190, 228, 248, 0.373); */
+  background-color: rgba(243, 243, 243, 0.681);
+}
+
+.line{
+  width: 95%;
+  margin: auto;
+  margin-top: 26px;
+  margin-bottom: 26px;
+  height: 0.5px;
+  background-color: grey;
+}
+
+.fi-user:hover{
+  background-color: rgba(212, 231, 255, 0.54);
+}
+
+.prof {
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity .4s ease;
+  position: absolute;
+  right: 10;
+}
+
+.profile:hover .prof{
+  visibility: visible;
+  opacity: 1;
+}
+.search-results {
+  scrollbar-width: thin;
+  scrollbar-color: blue transparent;
+}
+
+
+::-webkit-scrollbar-track {
+  border-radius: 20px;
+  background: blue;
+}
+
+.input-field:focus .search-icon{
+  display: none;
+}
+
+.main {
+  background-image: linear-gradient(135deg, #f8f9fa 30%, #007bff 100%);
+}
+
+.health-text {
+  overflow: hidden;
+  white-space: nowrap;
+  /* margin: 0 auto; */
+  letter-spacing: .04em;
+  transition: all .5s ease;
+  width: 0;
+  animation: typing 4s steps(30, end) forwards;
+}
+
+
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+.slider-container {
+  display: flex;
+  height: 40vh;
+  overflow-x: auto;
+  gap: 1rem;
+
+  /* 2025 Best Practice: Native Snap Behavior */
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  /* Smooth scrolling on iOS */
+}
+
+.slider-container::-webkit-scrollbar {
+  display: none;
+  /* Hide scrollbar for WebKit browsers */
+}
+
+.cards {
+  flex: 0 0 80%;
+  max-width: 500px;
+  scroll-snap-align: start;
+  /* Card snaps to the left edge when scrolled */
+  border-radius: 10px;
+}
+
+.category-heading {
+  animation: fadeInUp 1s ease forwards;
+  opacity: 1;
+  transition: .5s;
+  position: relative;
+}
+.category-heading::after {
+  content: '';
+  display: block;
+  width: 50px;
+  transition: .4s;
+  animation: expandWidth 1s ease forwards;
+  height: 2.5px;
+  border-radius: 7px;
+  background-color: orange; 
+  position: absolute;
+  bottom: -5px;
+  left: auto;
+  right: auto;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes expandWidth {
+  from {
+    width: 50px;
+  }
+
+  to {
+    width: 175px;
+  }
+}
+
+.feeds {
+  animation: fadeInUp 2s ease forwards;
+  transition: .5s;
+  opacity: 0;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
