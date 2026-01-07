@@ -78,6 +78,7 @@ export default function Home() {
   }
   return (
     <>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet"></link>
       <div className="m-20">
         <Logo className="lg:scale-105 md:mb-20 lg:mb-40" />
       </div>
