@@ -3,8 +3,9 @@ import "./globals.css";
 import { Geist, Geist_Mono } from "next/font/google";
 import Providers from "./Providers";
 
-
+import { ThemeProvider } from "next-themes";
 import { Analytics } from "@vercel/analytics/next";
+
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -23,22 +24,28 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" className="h-full">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-stone-100`}
-      >
+    <html lang="en" className="h-full" suppressHydrationWarning>
+      <head>
         {/* Google Fonts */}
         <link
           href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
           rel="stylesheet"
         />
-        <Providers>
-          <main>
-            <Analytics />
-            {children}
-          </main>
-        </Providers>
+      </head>
+
+
+      <body
+        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-stone-50 dark:bg-black min-h-full`}
+      >
+        <ThemeProvider attribute="class" defaultTheme="light" enableSystem={false}>
+          <Analytics />
+          <Providers>
+            <main className="dark:bg-black bg-stone-50 transition-colors duration-200 min-h-full">
+              {children}
+            </main>
+          </Providers>
+        </ThemeProvider>
       </body>
-    </html>
+    </html >
   );
 }

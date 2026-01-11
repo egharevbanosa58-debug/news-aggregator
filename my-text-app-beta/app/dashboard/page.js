@@ -8,6 +8,7 @@ import { MdLocalMovies, MdSignalWifiOff } from "react-icons/md";
 import NewsCard from "../components/NewsCards";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { signOut } from "next-auth/react";
+import ThemeToggle from "../components/ThemeToggle";
 
 
 const CATEGORIES = [
@@ -266,7 +267,7 @@ export default function Dashboard() {
 
                                         <div className="line"></div>
                                         <button className="nav-btn"><FiUser />Profile</button>
-                                        <button className="nav-btn"><FiSun />Theme</button>
+                                        <ThemeToggle />
                                         <button className="nav-btn text-red-600" onClick={() => signOut({ callbackUrl: "/DummyPage" })}><FiLogOut className="text-red-600" />Logout </button>
                                     </div>
                                 </div>
