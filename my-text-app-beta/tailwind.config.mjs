@@ -20,6 +20,11 @@ export default {
     "./pages/**/*.{js,ts,jsx,tsx}",
     "./components/**/*.{js,ts,jsx,tsx}",
     "./src/**/*.{js,ts,jsx,tsx}",
+    "./dashboard/**/*.{js,ts,jsx,tsx}",
+    "./DummyPage/**/*.{js,ts,jsx,tsx}",
+    "./login/**/*.{js,ts,jsx,tsx}",
+    "./register/**/*.{js,ts,jsx,tsx}",
+    "./app/page.js.{js,ts,jsx,tsx}"
   ],
   theme: {
     extend: {},

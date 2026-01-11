@@ -110,10 +110,10 @@ export default function Home() {
   return (
     <>
       {/* Google Fonts */}
-      {/* <link
+      <link
         href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
         rel="stylesheet"
-      /> */}
+      />
 
       {/* Logo Section */}
       <div className="flex justify-center mt-20 mb-10">
@@ -121,7 +121,7 @@ export default function Home() {
       </div>
 
       {/* Welcome Text */}
-      <div className="max-w-3xl mx-auto text-center space-y-6 px-4">
+      <div className="max-w-4xl mx-auto text-center space-y-6 px-4">
         <p className="text-3xl md:text-4xl lg:text-5xl font-medium">
           Welcome to{" "}
           <span className="text-blue-600 font-semibold">News</span>
@@ -139,11 +139,14 @@ export default function Home() {
 
       {/* Buttons */}
       <div className="flex flex-col lg:flex-row justify-center items-center gap-6 mt-10 px-4">
+        {/* Create Account */}
         <a href="/register" className="w-full lg:w-1/3">
           <button className="w-full p-4 text-xl font-extralight text-blue-600 bg-transparent border border-blue-600 rounded-3xl hover:bg-blue-50 transition">
             Create Account
           </button>
         </a>
+
+        {/* Log In */}
         <a href="/login" className="w-full lg:w-1/3">
           <button className="w-full p-4 text-xl text-white bg-blue-600 rounded-3xl hover:bg-blue-700 transition">
             Log in
