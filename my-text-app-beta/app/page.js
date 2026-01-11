@@ -188,7 +188,7 @@ import Logo from "./components/Logo";
 
 export default function Home() {
   return (
-    <main className="min-h-screen flex flex-col items-center px-6 pt-16">
+    <main className="min-h-screen flex flex-col items-center px-6 pt-12">
 
       {/* Google Fonts */}
       <link

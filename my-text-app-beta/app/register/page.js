@@ -52,7 +52,7 @@ export default function RegisterPage() {
 
 
     return (
-        <div className='-mt-5 h-100vdh lg:h-294 overflow-hidden pt-20 pb-5 lg:pb-20 lg:pt-40'>
+        <div className='min-h-screen overflow-hidden pt-20 pb-5 lg:pb-20 lg:pt-40'>
 
             <Logo />
 
