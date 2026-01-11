@@ -188,52 +188,59 @@ import Logo from "./components/Logo";
 
 export default function Home() {
   return (
-    <main className="min-h-screen flex flex-col items-center gap-16 px-6">
-      
-      {/* Logo */}
-      <div className="mb-12">
-        <Logo />
-      </div>
+    <main className="min-h-screen flex flex-col items-center px-6 pt-16">
 
-      {/* Text block */}
-      <div className="max-w-2xl text-center space-y-4">
-        <h1 className="text-4xl md:text-5xl font-semibold">
-          Welcome to{" "}
-          <span className="text-blue-600">News</span>
-          <span className="ml-1 bg-blue-600 text-white px-2 py-1 rounded">
-            Lite
-          </span>
-        </h1>
+      {/* Google Fonts */}
+      <link
+        href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
+        rel="stylesheet"
+      />
 
-        <p className="text-gray-600 text-base md:text-lg">
-          Your go-to app for the latest news updates.
-        </p>
+      {/* Content wrapper */}
+      <div className="flex flex-col items-center gap-16 flex-grow">
 
-        <p className="text-blue-600 text-2xl md:text-3xl font-bold pt-4">
+        <Logo className="scale-105" />
+
+        <div className="text-center flex  flex-col gap-4">
+          <p className="text-3xl md:text-4xl lg:text-5xl font-medium">
+            Welcome to{" "}
+            <span className="text-blue-600 font-semibold">News</span>
+            <span className="bg-blue-600 text-white px-2 py-1 font-semibold">
+              Lite
+            </span>
+          </p>
+
+          <p className="text-sm md:text-lg">
+            Your go-to app for the latest news updates.
+          </p>
+        </div>
+
+        <p className="text-blue-600 text-3xl md:text-4xl font-bold">
           Let’s get you started
         </p>
-      </div>
 
-      {/* Buttons */}
-      <div className="flex flex-col sm:flex-row gap-3">
-        <a href="/register">
-          <button className="px-7 py-2 border border-blue-600 text-blue-600 rounded-xl hover:bg-blue-50 transition">
-            Create Account
-          </button>
-        </a>
+        <div className="flex flex-col md:flex-row gap-6 w-full max-w-xl">
+          <a href="/register" className="w-full">
+            <button className="w-full p-4 text-blue-600 border border-blue-600 rounded-2xl text-xl">
+              Create Account
+            </button>
+          </a>
 
-        <a href="/login">
-          <button className="px-14 py-2 bg-blue-600 text-white rounded-xl hover:bg-blue-700 transition">
-            Log in
-          </button>
-        </a>
+          <a href="/login" className="w-full">
+            <button className="w-full p-4 bg-blue-600 text-white rounded-2xl text-xl">
+              Log in
+            </button>
+          </a>
+        </div>
+
       </div>
 
       {/* Footer */}
-      <footer className="mt-auto py-6 text-center text-blue-600 text-sm">
-        <p>© 2024 News Aggregator. All rights reserved.</p>
+      <footer className="text-center text-blue-600 py-6 mt-auto md:hidden">
+        <p>© 2024 News Aggregator</p>
         <p>Created by NOSA ™</p>
       </footer>
+
     </main>
   );
 }
