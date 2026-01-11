@@ -197,7 +197,7 @@ export default function Home() {
       />
 
       {/* Content wrapper */}
-      <div className="flex flex-col items-center gap-16 flex-grow">
+      <div className="flex flex-col items-center gap-12 flex-grow">
 
         <Logo className="scale-105" />
 
@@ -219,7 +219,7 @@ export default function Home() {
           Let’s get you started
         </p>
 
-        <div className="flex flex-col md:flex-row gap-6 w-full max-w-xl">
+        <div className="flex flex-col md:flex-row gap-5 w-full max-w-xl">
           <a href="/register" className="w-full">
             <button className="w-full p-4 text-blue-600 border border-blue-600 rounded-2xl text-xl">
               Create Account
