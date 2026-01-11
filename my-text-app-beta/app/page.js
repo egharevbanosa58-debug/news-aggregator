@@ -66,19 +66,14 @@
 //   );
 // }
 
-import { useRouter } from "next/navigation";
+
 import Logo from "./components/Logo";
-import { Router } from "next/router";
 
 export default function Home() {
 
-  const handleSubmit = (route) => {
-    const router = useRouter();
-    router.push(route)
-  }
   return (
     <>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet"></link>
+      <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet"></link>
       <div className="m-20">
         <Logo className="lg:scale-105 md:mb-20 lg:mb-40" />
       </div>
@@ -90,13 +85,13 @@ export default function Home() {
       </div>
 
       <div className="p-auto m-auto justify-center items-center ml-[27%] space-x-15">
-        <button type="submit" onClick={() => handleSubmit('/register')} className="w-[80%] lg:w-[30%] p-3 md:p-4 lg:p-5 lg:rounded-5xl items-center justify-center font-extralight text-blue-600 bg-transparent text-xl rounded-3xl border border-blue-600 mb-8">
+        <a href="/register"><button type="submit" className="w-[80%] lg:w-[30%] p-3 md:p-4 lg:p-5 lg:rounded-5xl items-center justify-center font-extralight text-blue-600 bg-transparent text-xl rounded-3xl border border-blue-600 mb-8">
           Create Account
-        </button>
+        </button></a>
 
-        <button type="submit" onClick={() => handleSubmit('/login')} className="w-[80%] lg:w-[30%] p-3 md:p-4 lg:p-5 lg:rounded-5xl items-center justify-center text-xl text-white rounded-3xl bg-blue-600">
+        <a href="/login"><button type="submit" className="w-[80%] lg:w-[30%] p-3 md:p-4 lg:p-5 lg:rounded-5xl items-center justify-center text-xl text-white rounded-3xl bg-blue-600">
           Log in
-        </button>
+        </button></a>
       </div>
 
       <footer className=" md:hidden w-full mt-30 bottom-0">
