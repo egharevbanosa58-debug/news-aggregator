@@ -58,11 +58,11 @@ export default function RegisterPage() {
 
             <form
                 onSubmit={handleSubmit}
-                className="flex flex-col rounded-2xl shadow h-180 lg:h-170 px-8 md:px-20 items-center bg-white pt-16 lg:pt-16 gap-6 "
+                className="flex flex-col rounded-2xl shadow h-180 lg:h-170 px-6 md:px-20 items-center bg-white pt-16 lg:pt-16 gap-6 "
             >
                 <div className='flex flex-col gap-1 items-center justify-center'>
-                    <h1 className="font-bold text-4xl">Sign Up</h1>
-                    <p>Let's get you registered...</p>
+                    <h1 className="font-bold text-2xl">Sign Up</h1>
+                    <p className="text-sm">Let's get you registered...</p>
                     {error && <p className="text-red-500 text-sm">{error}</p>}
                     {success && <p className="text-green-500 text-sm flex items-center gap-2"><FiCheck /> Registration successful!</p>}
                 </div>
@@ -106,7 +106,7 @@ export default function RegisterPage() {
                     </span>
                 </div>
 
-                <button type="submit" className="w-70 md:w-90 hover:cursor-pointer hover:bg-blue-600 bg-blue-500 text-white font-bold text-2xl p-3 rounded-2xl transition-all" >Register</button>
+                <button type="submit" className="w-70 md:w-90 hover:cursor-pointer hover:bg-blue-600 bg-blue-500 text-white font-bold text-lg p-3 rounded-2xl transition-all" >Register</button>
 
                 <p>Already have an account? {""}<a href="/login" className="text-blue-600 underline">Login</a></p>
             </form>
