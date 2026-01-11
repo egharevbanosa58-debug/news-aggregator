@@ -52,57 +52,61 @@ export default function RegisterPage() {
 
 
     return (
-        <div className='min-h-screen overflow-hidden pt-20 pb-5 lg:pb-20 lg:pt-40'>
+        <div className='min-h-screen overflow-hidden pt-16 lg:pb-16 lg:pt-20 flex flex-col items-center px-6 gap-6'>
 
             <Logo />
 
             <form
                 onSubmit={handleSubmit}
-                className="flex flex-col rounded-2xl shadow h-180 lg:h-200 space-y-10 w-90 m-auto md:w-150 items-center bg-white pt-18 lg:pt-32"
+                className="flex flex-col rounded-2xl shadow h-180 lg:h-170 px-8 md:px-20 items-center bg-white pt-16 lg:pt-16 gap-6 "
             >
-                <h1 className="font-bold text-4xl">Sign Up</h1>
-                <p>Let's get you registered...</p>
-                {error && <p className="text-red-500 text-sm">{error}</p>}
-                {success && <p className="text-green-500 text-sm flex items-center gap-2"><FiCheck /> Registration successful!</p>}
+                <div className='flex flex-col gap-1 items-center justify-center'>
+                    <h1 className="font-bold text-4xl">Sign Up</h1>
+                    <p>Let's get you registered...</p>
+                    {error && <p className="text-red-500 text-sm">{error}</p>}
+                    {success && <p className="text-green-500 text-sm flex items-center gap-2"><FiCheck /> Registration successful!</p>}
+                </div>
 
-                <span className='relative'>
-                    <Inputs
-                        type='text'
-                        name='name'
-                        placeholder='Username' />
+                <div className='flex flex-col gap-4'>
+                    <span className='relative'>
+                        <Inputs
+                            type='text'
+                            name='name'
+                            placeholder='Username' />
 
-                    <FiUser className='absolute text-2xl text-gray-400 bottom-5 left-2' />
-                </span>
+                        <FiUser className='absolute text-2xl text-gray-400 bottom-5 left-2.5' />
+                    </span>
 
-                <span className='relative'>
-                    <Inputs
-                        type='email'
-                        name='email'
-                        placeholder='Email' />
+                    <span className='relative'>
+                        <Inputs
+                            type='email'
+                            name='email'
+                            placeholder='Email' />
 
-                    <FiMail className='absolute text-2xl text-gray-400 bottom-5 left-2' />
-                </span>
+                        <FiMail className='absolute text-2xl text-gray-400 bottom-5 left-2.5' />
+                    </span>
 
-                <span className='relative'>
-                    <Inputs
-                        type={showPassword ? 'text' : 'password'}
-                        name='password'
-                        placeholder='Password'
-                    />
+                    <span className='relative'>
+                        <Inputs
+                            type={showPassword ? 'text' : 'password'}
+                            name='password'
+                            placeholder='Password'
+                        />
 
-                    <FiLock className='absolute text-2xl text-gray-400 bottom-5 left-2' />
+                        <FiLock className='absolute text-2xl text-gray-400 bottom-5 left-2.5' />
 
-                    <button
-                        type='button'
-                        onClick={() => setShowPassword(!showPassword)}
-                        className='absolute right-10 bottom-5 text-gray-400 text-2xl hover:text-gray-600'
-                        aria-label='Toggle password visibility'
-                    >
-                        {showPassword ? <FiEyeOff /> : <FiEye />}
-                    </button>
-                </span>
+                        <button
+                            type='button'
+                            onClick={() => setShowPassword(!showPassword)}
+                            className='absolute right-6 bottom-5 text-gray-400 text-2xl hover:text-gray-600'
+                            aria-label='Toggle password visibility'
+                        >
+                            {showPassword ? <FiEyeOff /> : <FiEye />}
+                        </button>
+                    </span>
+                </div>
 
-                <button type="submit" className="w-70 lg:w-90 hover:cursor-pointer hover:bg-blue-600 bg-blue-500 text-white font-bold text-2xl p-3 rounded-2xl" >Register</button>
+                <button type="submit" className="w-70 md:w-90 hover:cursor-pointer hover:bg-blue-600 bg-blue-500 text-white font-bold text-2xl p-3 rounded-2xl transition-all" >Register</button>
 
                 <p>Already have an account? {""}<a href="/login" className="text-blue-600 underline">Login</a></p>
             </form>

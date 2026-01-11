@@ -190,12 +190,6 @@ export default function Home() {
   return (
     <main className="min-h-screen flex flex-col items-center px-6 pt-12">
 
-      {/* Google Fonts */}
-      <link
-        href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
-        rel="stylesheet"
-      />
-
       {/* Content wrapper */}
       <div className="flex flex-col items-center gap-12 flex-grow">
 
