@@ -58,10 +58,10 @@ export default function RegisterPage() {
 
             <form
                 onSubmit={handleSubmit}
-                className="flex flex-col rounded-2xl shadow h-180 lg:h-170 px-6 md:px-20 items-center bg-white pt-16 lg:pt-16 gap-6 "
+                className="flex flex-col rounded-2xl shadow h-fit lg:py-24 px-6 md:px-20 items-center bg-white py-20 gap-6 "
             >
                 <div className='flex flex-col gap-1 items-center justify-center'>
-                    <h1 className="font-bold text-2xl">Sign Up</h1>
+                    <h1 className="font-bold text-3xl">Sign Up</h1>
                     <p className="text-sm">Let's get you registered...</p>
                     {error && <p className="text-red-500 text-sm">{error}</p>}
                     {success && <p className="text-green-500 text-sm flex items-center gap-2"><FiCheck /> Registration successful!</p>}
