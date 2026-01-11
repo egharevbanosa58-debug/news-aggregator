@@ -47,13 +47,13 @@ export default function LoginPage() {
 
 
     return (
-        <div className='-mt-5 h-100vdh lg:h-294 overflow-hidden pt-20 pb-5 lg:pb-20 lg:pt-40'>
+        <div className='min-h-screen overflow-hidden pt-16 lg:pb-16 lg:pt-20 flex flex-col items-center px-6 gap-6'>
 
             <Logo />
 
             <form
                 onSubmit={handleSubmit}
-                className="flex flex-col rounded-2xl shadow h-180 lg:h-200 space-y-10 w-80 m-auto sm:w-100 md:w-150 bg-white pt-18 lg:pt-24 items-center">
+                className="flex flex-col rounded-2xl shadow h-fit lg:py-24 px-6 md:px-20 items-center bg-white py-20 gap-6 ">
                 <h1 className="font-bold text-4xl">Welcome Back!</h1>
                 <h2 className="font-semibold text-3xl">Login</h2>
 
@@ -63,7 +63,7 @@ export default function LoginPage() {
                         name='email'
                         placeholder='Email' />
 
-                    <FiMail className='absolute text-2xl text-gray-400 bottom-5 left-2' />
+                    <FiMail className='absolute text-2xl text-gray-400 bottom-5 left-2.5' />
                 </span>
 
                 <span className='relative'>
@@ -74,12 +74,12 @@ export default function LoginPage() {
                         disabled={loading || success}
                     />
 
-                    <FiLock className='absolute text-2xl text-gray-400 bottom-5 left-2' />
+                    <FiLock className='absolute text-2xl text-gray-400 bottom-5 left-2.5' />
 
                     <button
                         type='button'
                         onClick={() => setShowPassword(!showPassword)}
-                        className='absolute right-10 bottom-5 text-gray-400 text-2xl hover:text-gray-600'
+                        className='absolute right-6 bottom-5 text-gray-400 text-2xl hover:text-gray-600'
                         aria-label='Toggle password visibility'
                     >
                         {showPassword ? <FiEyeOff /> : <FiEye />}
@@ -89,7 +89,7 @@ export default function LoginPage() {
                 <button
                     type='submit'
                     disabled={loading || success}
-                    className={`w-70 lg:w-90 hover:cursor-pointer ${success ? 'bg-green-500' : 'hover:bg-blue-600 bg-blue-500'} hover:shadow-gray-300 hover:shadow-lg text-white font-bold text-2xl p-3 rounded-2xl flex items-center justify-center gap-3`}
+                    className={`w-70 md:w-90 hover:cursor-pointer ${success ? 'bg-green-500' : 'hover:bg-blue-600 bg-blue-500'} hover:shadow-gray-300 hover:shadow-lg text-white font-bold text-lg p-3 rounded-2xl flex items-center justify-center gap-3`}
                 >
                     {loading && (
                         <span className='inline-block h-5 w-5 border-2 border-white border-t-transparent rounded-full animate-spin' />
