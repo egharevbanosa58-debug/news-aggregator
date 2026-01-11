@@ -4,7 +4,7 @@ import { useSession } from "next-auth/react"
 import Logo from "../components/Logo";
 import { FiUser, FiMenu, FiLogOut, FiSun, FiFlag, FiCpu, FiCoffee, FiChevronDown, FiChevronUp, FiSearch, FiExternalLink, FiFilter } from "react-icons/fi";
 import { FaBowlingBall, FaFire, FaFlask, FaListUl, FaSpinner } from "react-icons/fa";
-import { MdLocalMovies } from "react-icons/md";
+import { MdLocalMovies, MdSignalWifiOff } from "react-icons/md";
 import NewsCard from "../components/NewsCards";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { signOut } from "next-auth/react";
@@ -167,10 +167,20 @@ export default function Dashboard() {
     const uniqueSources = [...new Set(feed.map(a => a.source && a.source.name).filter(Boolean))];
     const filteredFeed = selectedSource === 'all' ? feed : feed.filter(a => a.source && a.source.name === selectedSource);
 
-    if (status === 'loading') return <img src="/Dual-ball-loading.gif" alt="loading-animation" className="inset-0 flex items-center justify-center bg-transparent z-999" />;
+    if (status === 'loading') return <img src="/Dual-ball-loading.gif" alt="loading-animation" className="flex items-center justify-center bg-transparent z-999" />;
     if (status === 'unauthenticated') return (
-        <div>
-            Not logged in
+        <div className="justify-center items-center flex flex-col gap-20 min-h-screen">
+            <MdSignalWifiOff className="w-20 h-20 text-blue-600 mx-auto mt-40" />
+            <span>
+                <h1 className="text-3xl">Oops Something wen't wrong</h1>
+                <br/>
+                <p className="text-start ">try:</p>
+                <ul>
+                    <li>- <a href="/login" className="text-blue-600 underline">Logging in again</a></li>
+                    <li>- Checking your internet connection</li>
+                    <li>- Clearing your browser cache</li>
+                </ul>
+            </span>
             {/* Opps something went wrong */}
         </div>
     );
@@ -293,7 +303,7 @@ export default function Dashboard() {
                     {searchResults.length > 0 && open && (
                         <ul ref={resultsRef} className=" transform translate-y-55 absolute p-4 z-999 flex flex-col gap-3 bg-white shadow-lg rounded-2xl search-results max-h-100 overflow-y-auto border border-blue-100 mx-4">
                             {searchResults.map((article, index) => (
-                                <li key={index} className="px-1 py-2 justify-between rounded-xl flex gap-3 items-center hover:bg-gray-200 cursor-pointer text-md font-medium border-b border-blue-200 hover:shadow"><FaListUl className="text-blue-600" /><a href={article.url} target="_self">{article.title.length > 30 ? article.title.slice(0, 40) + "..." : article.title }</a><span className="text-sm text-stone-400 ml-auto">source: {article.source.name}</span><FiExternalLink className="ml-auto text-blue-400" /></li>
+                                <li key={index} className="px-1 py-2 justify-between rounded-xl flex gap-3 items-center hover:bg-gray-200 cursor-pointer text-md font-medium border-b border-blue-200 hover:shadow"><FaListUl className="text-blue-600" /><a href={article.url} target="_self">{article.title.length > 30 ? article.title.slice(0, 40) + "..." : article.title}</a><span className="text-sm text-stone-400 ml-auto">source: {article.source.name}</span><FiExternalLink className="ml-auto text-blue-400" /></li>
                             ))}
                         </ul>
                     )}
@@ -303,7 +313,7 @@ export default function Dashboard() {
 
 
 
-            <div className="translate-y-30 grid grid-cols-1 md:grid-cols-2 gap-3 pt-30 overflow-hidden lg:px-64 pb-64">
+            <div className="translate-y-15 grid grid-cols-1 md:grid-cols-2 gap-3 pt-30 overflow-hidden lg:px-64 pb-64">
                 <div className="p-4 col-span-1 md:col-span-2" ref={filterRef}>
                     <div className="flex items-center gap-3">
                         <button onClick={() => setFilterOpen((s) => !s)}><FiFilter className="w-8 h-8 md:w-10 md:h-10 lg:w-12 lg:h-12 p-2 bg-white hover:bg-blue-100 text-blue-600 rounded-xl border" /></button>
@@ -336,7 +346,7 @@ export default function Dashboard() {
 
 
 
-                <h1 className="category-heading mt-2 text-2xl md:text-3xl lg:text-5xl lg:text-start md:col-span-2 font-semibold ml-4">{selectedCategory === 'general' ? 'General' : selectedCategory === 'technology' ? 'Technology' : selectedCategory === 'science' ? 'Science' : selectedCategory === 'business' ? 'Business' : selectedCategory === 'entertainment' ? 'Entertainment' : selectedCategory === 'sports' ? 'Sports' : ''}</h1>
+                <h1 className="category-heading mt-2 text-xl md:text-2xl lg:text-4xl lg:text-start md:col-span-2 font-semibold ml-4">{selectedCategory === 'general' ? 'General' : selectedCategory === 'technology' ? 'Technology' : selectedCategory === 'science' ? 'Science' : selectedCategory === 'business' ? 'Business' : selectedCategory === 'entertainment' ? 'Entertainment' : selectedCategory === 'sports' ? 'Sports' : ''}</h1>
                 {/* Content */}
                 {loading ? (
                     <div className="feeds col-span-2 flex justify-center items-center w-full mx-3">
