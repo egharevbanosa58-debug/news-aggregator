@@ -167,19 +167,24 @@ export default function Dashboard() {
     const uniqueSources = [...new Set(feed.map(a => a.source && a.source.name).filter(Boolean))];
     const filteredFeed = selectedSource === 'all' ? feed : feed.filter(a => a.source && a.source.name === selectedSource);
 
-    if (status === 'loading') return <img src="/Dual-ball-loading.gif" alt="loading-animation" className="mx-auto my-150" />;
-    if (status === 'unauthenticated') return <p>Not logged in</p>
+    if (status === 'loading') return <img src="/Dual-ball-loading.gif" alt="loading-animation" className="inset-0 flex items-center justify-center bg-transparent z-999" />;
+    if (status === 'unauthenticated') return (
+        <div>
+            Not logged in
+            {/* Opps something went wrong */}
+        </div>
+    );
     return (
-        <main className={`${loading ? 'bg-transparent' : ''} min-h-screen pb-10`}>
+        <main className={`${loading ? 'bg-stone/60' : ''} min-h-screen flex flex-col items-center px-2`}>
             <div className=" bg-white items-center nav-banner w-full">
-                <div className="flex items-center w-full pt-2">
+                <div className="flex justify-between items-center w-full px-4 py-3">
                     {/* App LOGO */}
-                    <Logo className="scale-50 lg:scale-60 xl:scale-70 lg:translate-y-5 pt-5 -ml-6 transform" />
+                    <Logo className="scale-80 lg:scale-90 xl:scale-100 pt-5 flex mr-auto" />
 
-                    <div className="flex gap-3 -mt-5 lg:mt-10 lg:mb-7 ml-auto mr-5">
+                    <div className="flex justify-between gap-3 -mt-5 lg:mt-10 lg:mb-7 ml-auto mr-5">
 
                         {/* The large screen nav bar goes here */}
-                        <nav className="hidden lg:flex gap-3 xl:3 items-center text-xl text-stone-500 md:mr-12 lg:mr-20 justify-center md:text-sm">
+                        <nav className="hidden lg:flex gap-3 items-center text-lg text-stone-500 md:mr-12 lg:mr-20 justify-between md:text-sm">
 
                             {CATEGORIES.map((cat) => (
                                 <button
@@ -190,52 +195,70 @@ export default function Dashboard() {
                                     {cat.name}
                                 </button>
                             ))}
-                        </nav>
 
-                        <div className="profile">
-                            <FiUser className="w-9 h-9 lg:w-10 lg:h-10 lg:rounded-2xl lg:mr-auto lg:-translate-x-10 p-2 hover:cursor-pointer relative fi-user border border-blue-300 rounded-xl text-blue-600" />
+                            <div className="profile hidden lg:flex ml-auto z-999">
+                                <FiUser className="w-9 h-9 lg:w-10 lg:h-10 lg:rounded-xl lg:ml-auto p-2 hover:cursor-pointer relative fi-user border border-blue-300 rounded-xl text-blue-600" />
 
-                            <div className="shadow rounded-xl bg-white prof p-1.5">
-                                <div className="w-full">
-                                    <button className="prof-btn relative flex items-center py-3 px-4 pr-6 gap-2"><FiUser className="p-2 size-10 border border-blue-600 rounded-3xl text-blue-600" />
-                                        <span className="flex flex-col text-start">
-                                            <h1 className="font-semibold">{session.user.name}</h1>
-                                            <h2 className="text-sm">{session.user.email}</h2>
-                                        </span>
-                                        <FiChevronDown className='absolute right-0 top-1/2 translate-y-[calc(-50%+4px)] text-sm' />
-                                        <FiChevronUp className='absolute right-0 top-1/2 translate-y-[calc(-50%-4px)] text-sm' />
-                                    </button>
+                                <div className="shadow rounded-xl bg-white prof p-1.5 translate-y-12">
+                                    <div className="w-full">
+                                        <button className="prof-btn relative flex items-center py-3 px-4 pr-6 gap-2"><FiUser className="p-2 size-10 border border-blue-600 rounded-3xl text-blue-600" />
+                                            <span className="flex flex-col text-start">
+                                                <h1 className="font-semibold">{session.user.name}</h1>
+                                                <h2 className="text-sm">{session.user.email}</h2>
+                                            </span>
+                                            <FiChevronDown className='absolute right-0 top-1/2 translate-y-[calc(-50%+4px)] text-sm' />
+                                            <FiChevronUp className='absolute right-0 top-1/2 translate-y-[calc(-50%-4px)] text-sm' />
+                                        </button>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
+                        </nav>
+                        <div className="flex ml-auto items-center gap-4">
+                            <div className="profile lg:hidden">
+                                <FiUser className="w-9 h-9 lg:w-10 lg:h-10 lg:rounded-xl lg:mr-auto lg:-translate-x-10 p-2 hover:cursor-pointer relative fi-user border border-blue-300 rounded-xl text-blue-600" />
 
-                        <div className="cont lg:hidden z-999">
-                            <FiMenu className="w-10 h-10 p-2 text-blue-600 hover:cursor-pointer relative fi-menu" />
+                                <div className="shadow rounded-xl bg-white prof p-1.5">
+                                    <div className="w-full">
+                                        <button className="prof-btn relative flex items-center py-3 px-4 pr-6 gap-2"><FiUser className="p-2 size-10 border border-blue-600 rounded-3xl text-blue-600" />
+                                            <span className="flex flex-col text-start">
+                                                <h1 className="font-semibold">{session.user.name}</h1>
+                                                <h2 className="text-sm">{session.user.email}</h2>
+                                            </span>
+                                            <FiChevronDown className='absolute right-0 top-1/2 translate-y-[calc(-50%+4px)] text-sm' />
+                                            <FiChevronUp className='absolute right-0 top-1/2 translate-y-[calc(-50%-4px)] text-sm' />
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
 
-                            <div className="shadow-lg rounded-xl bg-white nav p-2">
-                                <div className="flex flex-col w-60">
-                                    {/* <button className="nav-btn"><FaFire className="text-orange-400" />Trending</button>
+                            <div className="cont flex ml-auto lg:hidden z-999">
+                                <FiMenu className="w-10 h-10 p-2 text-blue-600 hover:cursor-pointer relative fi-menu" />
+
+                                <div className="shadow-lg rounded-xl bg-white nav p-2">
+                                    <div className="flex flex-col w-60">
+                                        {/* <button className="nav-btn"><FaFire className="text-orange-400" />Trending</button>
                                     <button className="nav-btn"><FiFlag className="text-green-600" />Nigeria</button>
                                     <button className="nav-btn"><FaFlask className="text-violet-500" />Science</button>
                                     <button className="nav-btn"><FiCpu className="text-sky-500" />Technology</button>
                                     <button className="nav-btn"><FiCoffee className="text-amber-700" />Food</button> */}
 
-                                    {/* Using states for the above buttons */}
-                                    {CATEGORIES.map((cat) => (
-                                        <button
-                                            key={cat.id}
-                                            onClick={() => setSelectedCategory(cat.id)}
-                                            className={`nav-btn ${selectedCategory === cat.id ? 'bg-blue-100 font-semibold' : ''}`}>
-                                            {cat.icon && <cat.icon className={cat.color} />}
-                                            {cat.name}
-                                        </button>
-                                    ))}
+                                        {/* Using states for the above buttons */}
+                                        {CATEGORIES.map((cat) => (
+                                            <button
+                                                key={cat.id}
+                                                onClick={() => setSelectedCategory(cat.id)}
+                                                className={`nav-btn ${selectedCategory === cat.id ? 'bg-blue-100 font-semibold' : ''}`}>
+                                                {cat.icon && <cat.icon className={cat.color} />}
+                                                {cat.name}
+                                            </button>
+                                        ))}
 
 
-                                    <div className="line"></div>
-                                    <button className="nav-btn"><FiUser />Profile</button>
-                                    <button className="nav-btn"><FiSun />Theme</button>
-                                    <button className="nav-btn text-red-600" onClick={() => signOut({ callbackUrl: "/DummyPage" })}><FiLogOut className="text-red-600" />Logout </button>
+                                        <div className="line"></div>
+                                        <button className="nav-btn"><FiUser />Profile</button>
+                                        <button className="nav-btn"><FiSun />Theme</button>
+                                        <button className="nav-btn text-red-600" onClick={() => signOut({ callbackUrl: "/DummyPage" })}><FiLogOut className="text-red-600" />Logout </button>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -247,7 +270,7 @@ export default function Dashboard() {
 
 
                 {/* The search bar goes here */}
-                <div className="input-field relative">
+                <div className="input-field flex justify-center items-center">
                     <input
                         type="text"
                         value={query}
@@ -259,16 +282,18 @@ export default function Dashboard() {
                                 fetchSearchRes();
                             }
                         }}
-                        className="h-10 w-50 md:w-80 pl-10 pr-4 mb-5 rounded-3xl relative text-blue-600 border border-blue-600 focus:outline-none ml-25 lg:ml-100 lg:h-13 transition-all focus:w-70 focus:shadow-md md:focus:w-100" />
-                    <FiSearch className="search-icon text-blue-600 text-xl absolute bottom-6 lg:bottom-7.5 p-2 w-8 h-8 left-26 lg:left-100 border-r" />
+                        className="h-10 w-50 md:w-80 pl-10 pr-4 mb-5 rounded-3xl text-blue-600 border relative border-blue-600 focus:outline-none ml-25 lg:ml-100 lg:h-13 transition-all focus:w-70 focus:shadow-md md:focus:w-100" />
+                    {/* <div className="pointer-events-none pl-3 items-center absolute inset-y-0 left-45 search-icon">
+                        <FiSearch className="text-blue-600 text-xl p-2 w-8 h-8 border-r" />
+                    </div> */}
                     {searchLoading && <FaSpinner className="transition-all animate-spin text-blue-600 absolute right-370 bottom-9" />}
 
 
                     {/* {error && <p className="text-red-600">Error : {error} by NOsa</p>} */}
                     {searchResults.length > 0 && open && (
-                        <ul ref={resultsRef} className="absolute p-4 z-999 bg-white shadow-lg rounded-2xl search-results space-y-2 max-h-100 overflow-y-auto border mx-20 border-blue-100">
+                        <ul ref={resultsRef} className=" transform translate-y-55 absolute p-4 z-999 flex flex-col gap-3 bg-white shadow-lg rounded-2xl search-results max-h-100 overflow-y-auto border border-blue-100 mx-4">
                             {searchResults.map((article, index) => (
-                                <li key={index} className="p-3 rounded-xl flex gap-3 items-center hover:bg-gray-200 cursor-pointer text-lg font-medium border-b border-blue-200 hover:shadow"><FaListUl className="text-blue-600" /><a href={article.url} target="_self">{article.title}</a><span className="text-sm text-stone-400 ml-auto">source: {article.source.name}</span><FiExternalLink className="ml-auto text-blue-400" /></li>
+                                <li key={index} className="px-1 py-2 justify-between rounded-xl flex gap-3 items-center hover:bg-gray-200 cursor-pointer text-md font-medium border-b border-blue-200 hover:shadow"><FaListUl className="text-blue-600" /><a href={article.url} target="_self">{article.title.length > 30 ? article.title.slice(0, 40) + "..." : article.title }</a><span className="text-sm text-stone-400 ml-auto">source: {article.source.name}</span><FiExternalLink className="ml-auto text-blue-400" /></li>
                             ))}
                         </ul>
                     )}
@@ -278,7 +303,7 @@ export default function Dashboard() {
 
 
 
-            <div className="translate-y-30 grid grid-cols-1 md:grid-cols-2 gap-3 pt-30 overflow-hidden lg:px-50 pb-10">
+            <div className="translate-y-30 grid grid-cols-1 md:grid-cols-2 gap-3 pt-30 overflow-hidden lg:px-64 pb-64">
                 <div className="p-4 col-span-1 md:col-span-2" ref={filterRef}>
                     <div className="flex items-center gap-3">
                         <button onClick={() => setFilterOpen((s) => !s)}><FiFilter className="w-8 h-8 md:w-10 md:h-10 lg:w-12 lg:h-12 p-2 bg-white hover:bg-blue-100 text-blue-600 rounded-xl border" /></button>
@@ -314,7 +339,7 @@ export default function Dashboard() {
                 <h1 className="category-heading mt-2 text-2xl md:text-3xl lg:text-5xl lg:text-start md:col-span-2 font-semibold ml-4">{selectedCategory === 'general' ? 'General' : selectedCategory === 'technology' ? 'Technology' : selectedCategory === 'science' ? 'Science' : selectedCategory === 'business' ? 'Business' : selectedCategory === 'entertainment' ? 'Entertainment' : selectedCategory === 'sports' ? 'Sports' : ''}</h1>
                 {/* Content */}
                 {loading ? (
-                    <div className="feeds col-span-2 flex justify-center items-center w-full mx-auto mt-30">
+                    <div className="feeds col-span-2 flex justify-center items-center w-full mx-3">
                         <img src="/Dual-ball-loading.gif" alt="loading" className="mx-auto my-10" />
                     </div>
                 ) : (
@@ -324,28 +349,24 @@ export default function Dashboard() {
                 )}
             </div>
 
-
-            <div className="bg-stone-500 h-[0.5px] w-full mt-50 mb-20 mx-0">
-
-            </div>
-
-            <div className="mt-60 mb-10 text-black health-text text-center whitespace-normal md:whitespace-nowrap text-2xl md:text-3xl lg:text-5xl font-semibold">
-                <h2>What's the health update in <span className="text-blue-700">The</span> United <span className="text-red-600">States?</span></h2>
+            <div className="flex flex-col w-full">
+                {/* <h2>What's the health update in <span className="text-blue-700">The</span> United <span className="text-red-600">States?</span></h2> */}
                 {/* <p className="text-sm text-stone-500">More news articles from Nigeria</p> */}
+                {moreResults.length > 0 && (
+                    <div className="slider-container flex h-fit px-4">
+                        {moreResults.map((article, index) => (
+                            <a className="cards" key={index} href={article.url}>
+                                <NewsCard article={article} />
+                            </a>
+                        ))}
+                    </div>
+                )}
             </div>
 
-            {moreResults.length > 0 && (
-                <div className="slider-container">
-                    {moreResults.map((article, index) => (
-                        <a className="cards" key={index} href={article.url}>
-                            <NewsCard article={article} />
-                        </a>
-                    ))}
-                </div>
-            )}
 
 
-            <footer className="w-full mt-30 bottom-0">
+
+            <footer className="mt-auto py-2 text-center text-blue-600 tracking-tight">
                 <p className="text-center text-blue-600 py-4">© 2024 News Aggregator. All rights reserved.</p>
                 <p className="text-center text-blue-600">Created by NOSA &trade;</p>
             </footer>

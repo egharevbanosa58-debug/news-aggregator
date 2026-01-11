@@ -2,12 +2,12 @@ import { FiExternalLink } from "react-icons/fi";
 
 export default function NewsCard({ article }) {
     return (
-        <div className="feeds bg-white m-4 grid grid-cols-1 md:grid-cols-2 rounded-lg shadow hover:shadow-md overflow-hidden hover:scale-105 transition-transform duration-300 relative">
+            <div className="feeds bg-white gap-3 grid grid-cols-1 md:grid-cols-2 rounded-lg shadow hover:shadow-md overflow-hidden hover:scale-105 transition-transform duration-300 relative">
                 <img src={article.urlToImage || "/placeholder.png"}
                     alt={article.title}
                     className="size-64 w-full object-cover" />
 
-                <div className="p-4">
+                <div className="py-6 px-4 ">
                     <h2 className="font-bold text-lg leading-tight">{article.title}</h2>
                     <p className="mt-2 text-stone-500">Author: {article.author || "Unknown"}</p>
                     <FiExternalLink className="absolute bottom-3 right-3 w-5 h-5 text-blue-600" />
@@ -19,6 +19,6 @@ export default function NewsCard({ article }) {
                     Read more
                 </a> */}
                 </div>
-        </div>
+            </div>
     )
 }

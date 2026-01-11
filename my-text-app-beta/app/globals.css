@@ -32,7 +32,6 @@ body {
   /* background: var(--background); */
   /* color: var(--foreground); */
   font-family: 'Roboto', 'sans-serif';
-  position: relative;
   scroll-behavior: smooth;
 }
 
@@ -56,7 +55,7 @@ body {
   transition: opacity .4s ease;
   position: absolute;
   right: 10;
-  transform: translateY(25px);
+  transform: translateY(45px);
 }
 
 .fi-menu:hover{
@@ -146,8 +145,8 @@ body {
 }
 
 .slider-container {
-  display: flex;
-  height: 40vh;
+  /* display: flex; */
+  /* height: 40vh; */
   overflow-x: auto;
   gap: 1rem;
 
