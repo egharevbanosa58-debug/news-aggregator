@@ -92,6 +92,7 @@ export default function RegisterPage() {
                             type={showPassword ? 'text' : 'password'}
                             name='password'
                             placeholder='Password'
+                            minLength={8}
                         />
 
                         <FiLock className='absolute text-2xl text-gray-400 bottom-5 left-2.5' />

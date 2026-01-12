@@ -2,6 +2,7 @@ export default function Inputs(
     {type, 
     name, 
     placeholder,
+    minLength,
     disabled}
 ) {
     //javascript function logic
@@ -14,7 +15,7 @@ export default function Inputs(
                 placeholder={placeholder}
                 disabled={disabled}
                 className="w-65 md:w-90 h-16 rounded-2xl border border-blue-500 focus:outline-none px-11 py-1 text-md transition-all focus:shadow-blue-400 items-center"
-                minLength={8}
+                minLength={minLength}
                 required />
         </>
     )
