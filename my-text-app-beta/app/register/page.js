@@ -18,6 +18,7 @@ export default function RegisterPage() {
         e.preventDefault();
         setError(null);
         setLoading(true);
+        alert("Data leaks will likely occur");
 
         const name = e.target.name.value;
         const email = e.target.email.value;
@@ -58,7 +59,7 @@ export default function RegisterPage() {
 
             <form
                 onSubmit={handleSubmit}
-                className="flex flex-col rounded-2xl shadow h-fit lg:py-24 px-6 md:px-20 items-center bg-white py-20 gap-6 "
+                className="flex flex-col rounded-2xl shadow h-fit lg:py-24 px-6 md:px-20 items-center bg-white dark:bg-neutral-900 py-20 gap-6 "
             >
                 <div className='flex flex-col gap-1 items-center justify-center'>
                     <h1 className="font-bold text-3xl">Sign Up</h1>
