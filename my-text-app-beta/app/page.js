@@ -231,7 +231,7 @@ export default function Home() {
 
       {/* Footer */}
       <footer className="text-center text-blue-600 py-6 mt-auto md:hidden">
-        <p>© 2024 News Aggregator</p>
+        <p>© 2026 News Aggregator</p>
         <p>Created by NOSA ™</p>
       </footer>
 
