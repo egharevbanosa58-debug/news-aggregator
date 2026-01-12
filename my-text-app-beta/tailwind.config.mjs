@@ -11,11 +11,12 @@
 //   plugins: [],
 // };
 
+
 // export default config;
 
 /** @type {import('tailwindcss').Config} */
 export default {
-  darkMode: "class",
+  darkMode : "class",
   content: [
     "./app/**/*.{js,ts,jsx,tsx}",
     "./pages/**/*.{js,ts,jsx,tsx}",

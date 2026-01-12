@@ -24,7 +24,7 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" className="h-full" suppressHydrationWarning>
+    <html lang="en" suppressHydrationWarning>
       <head>
         {/* Google Fonts */}
         <link
@@ -35,15 +35,17 @@ export default function RootLayout({ children }) {
 
 
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-stone-50 dark:bg-black min-h-full`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen "dark:bg-black bg-stone-50 transition-colors duration-200`}
       >
-        <ThemeProvider attribute="class" defaultTheme="light" enableSystem={false}>
+        <ThemeProvider attribute="class" defaultTheme="light" enableSystem={false} storageKey="theme">
           <Analytics />
-          <Providers>
-            <main className="dark:bg-black bg-stone-50 transition-colors duration-200 min-h-full">
-              {children}
-            </main>
-          </Providers>
+          
+            <Providers>
+              <main>
+                {children}
+              </main>
+            </Providers>
+
         </ThemeProvider>
       </body>
     </html >

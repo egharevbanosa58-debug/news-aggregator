@@ -302,7 +302,7 @@ export default function Dashboard() {
 
                     {/* {error && <p className="text-red-600">Error : {error} by NOsa</p>} */}
                     {searchResults.length > 0 && open && (
-                        <ul ref={resultsRef} className=" transform translate-y-55 absolute p-4 z-999 flex flex-col gap-3 bg-white shadow-lg rounded-2xl search-results max-h-100 overflow-y-auto border border-blue-100 mx-4">
+                        <ul ref={resultsRef} className=" transform translate-y-55 absolute p-4 z-999 flex flex-col gap-3 bg-white dark:bg-neutral-900 shadow-lg rounded-2xl search-results max-h-100 overflow-y-auto border border-blue-100 mx-4">
                             {searchResults.map((article, index) => (
                                 <li key={index} className="px-1 py-2 justify-between rounded-xl flex gap-3 items-center hover:bg-gray-200 cursor-pointer text-md font-medium border-b border-blue-200 hover:shadow"><FaListUl className="text-blue-600" /><a href={article.url} target="_self">{article.title.length > 30 ? article.title.slice(0, 40) + "..." : article.title}</a><span className="text-sm text-stone-400 ml-auto">source: {article.source.name}</span><FiExternalLink className="ml-auto text-blue-400" /></li>
                             ))}
@@ -317,12 +317,12 @@ export default function Dashboard() {
             <div className="translate-y-15 grid grid-cols-1 md:grid-cols-2 gap-3 pt-30 overflow-hidden lg:px-64 pb-64">
                 <div className="p-4 col-span-1 md:col-span-2" ref={filterRef}>
                     <div className="flex items-center gap-3">
-                        <button onClick={() => setFilterOpen((s) => !s)}><FiFilter className="w-8 h-8 md:w-10 md:h-10 lg:w-12 lg:h-12 p-2 bg-white hover:bg-blue-100 text-blue-600 rounded-xl border" /></button>
+                        <button onClick={() => setFilterOpen((s) => !s)}><FiFilter className="w-8 h-8 md:w-10 md:h-10 lg:w-12 lg:h-12 p-2 bg-white dark:bg-neutral-900 hover:bg-blue-100 text-blue-600 rounded-xl border" /></button>
                         <span className="text-md text-blue-500 px-3">{selectedSource === 'all' ? 'All' : selectedSource}</span>
                     </div>
 
                     {filterOpen && (
-                        <div className="mt-3 bg-white rounded-xl shadow p-4 w-64 border border-blue-100">
+                        <div className="mt-3 bg-white dark:bg-neutral-900 rounded-xl shadow p-4 w-64 border border-blue-100">
                             <div className="space-y-2 max-h-48 overflow-y-auto">
                                 <label className="flex items-center gap-2">
                                     <input type="radio" name="source" checked={selectedSource === 'all'} onChange={() => setSelectedSource('all')} />
