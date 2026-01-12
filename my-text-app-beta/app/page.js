@@ -185,7 +185,6 @@
 
 
 import Logo from "./components/Logo";
-import ThemeToggle from "./components/ThemeToggle";
 
 export default function Home() {
   return (
@@ -226,11 +225,6 @@ export default function Home() {
               Log in
             </button>
           </a>
-        </div>
-
-        <ThemeToggle />
-        <div className="z-50 p-4 bg-red-500 dark:bg-green-500 text-white">
-          DARK MODE TEST
         </div>
 
       </div>
