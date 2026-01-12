@@ -59,11 +59,11 @@ export default function RegisterPage() {
 
             <form
                 onSubmit={handleSubmit}
-                className="flex flex-col rounded-2xl shadow h-fit lg:py-24 px-6 md:px-20 items-center bg-white dark:bg-neutral-900 py-20 gap-6 "
+                className="flex flex-col rounded-2xl shadow h-fit lg:py-24 px-6 md:px-20 items-center bg-white dark:bg-blue-950 dark:border dark:border-blue-600 py-20 gap-6"
             >
                 <div className='flex flex-col gap-1 items-center justify-center'>
-                    <h1 className="font-bold text-3xl">Sign Up</h1>
-                    <p className="text-sm">Let's get you registered...</p>
+                    <h1 className="font-bold text-3xl dark:text-white">Sign Up</h1>
+                    <p className="text-sm dark:text-white">Let's get you registered...</p>
                     {error && <p className="text-red-500 text-sm">{error}</p>}
                     {success && <p className="text-green-500 text-sm flex items-center gap-2"><FiCheck /> Registration successful!</p>}
                 </div>
@@ -75,7 +75,7 @@ export default function RegisterPage() {
                             name='name'
                             placeholder='Username' />
 
-                        <FiUser className='absolute text-2xl text-gray-400 bottom-5 left-2.5' />
+                        <FiUser className='absolute text-2xl text-gray-400 dark:text-white bottom-5 left-2.5' />
                     </span>
 
                     <span className='relative'>
@@ -84,7 +84,7 @@ export default function RegisterPage() {
                             name='email'
                             placeholder='Email' />
 
-                        <FiMail className='absolute text-2xl text-gray-400 bottom-5 left-2.5' />
+                        <FiMail className='absolute text-2xl text-gray-400 dark:text-white bottom-5 left-2.5' />
                     </span>
 
                     <span className='relative'>
@@ -95,12 +95,12 @@ export default function RegisterPage() {
                             minLength={8}
                         />
 
-                        <FiLock className='absolute text-2xl text-gray-400 bottom-5 left-2.5' />
+                        <FiLock className='absolute text-2xl text-gray-400 dark:text-white bottom-5 left-2.5' />
 
                         <button
                             type='button'
                             onClick={() => setShowPassword(!showPassword)}
-                            className='absolute right-6 bottom-5 text-gray-400 text-2xl hover:text-gray-600'
+                            className='absolute right-6 bottom-5 text-gray-400 dark:text-white text-2xl hover:text-gray-600 dark:hover:text-stone-500'
                             aria-label='Toggle password visibility'
                         >
                             {showPassword ? <FiEyeOff /> : <FiEye />}
@@ -110,7 +110,7 @@ export default function RegisterPage() {
 
                 <button type="submit" className="w-70 md:w-90 hover:cursor-pointer hover:bg-blue-600 bg-blue-500 text-white font-bold text-lg p-3 rounded-2xl transition-all" >Register</button>
 
-                <p>Already have an account? {""}<a href="/login" className="text-blue-600 underline">Login</a></p>
+                <p className="dark:text-white">Already have an account? {""}<a href="/login" className="text-blue-600 underline">Login</a></p>
             </form>
         </div>
     )

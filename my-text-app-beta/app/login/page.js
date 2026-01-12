@@ -53,9 +53,9 @@ export default function LoginPage() {
 
             <form
                 onSubmit={handleSubmit}
-                className="flex flex-col rounded-2xl shadow h-fit lg:py-24 px-6 md:px-20 items-center bg-white py-20 gap-6 ">
-                <h1 className="font-bold text-4xl">Welcome Back!</h1>
-                <h2 className="font-semibold text-3xl">Login</h2>
+                className="flex flex-col rounded-2xl shadow h-fit lg:py-24 px-6 md:px-20 items-center bg-white py-20 gap-6 dark:bg-blue-950 dark:border dark:border-blue-600">
+                <h1 className="font-bold text-4xl dark:text-white">Welcome Back!</h1>
+                <h2 className="font-semibold text-3xl dark:text-white">Login</h2>
 
                 <span className='relative'>
                     <Inputs
@@ -63,7 +63,7 @@ export default function LoginPage() {
                         name='email'
                         placeholder='Email' />
 
-                    <FiMail className='absolute text-2xl text-gray-400 bottom-5 left-2.5' />
+                    <FiMail className='absolute text-2xl text-gray-400 dark:text-white bottom-5 left-2.5' />
                 </span>
 
                 <span className='relative'>
@@ -74,12 +74,12 @@ export default function LoginPage() {
                         disabled={loading || success}
                     />
 
-                    <FiLock className='absolute text-2xl text-gray-400 bottom-5 left-2.5' />
+                    <FiLock className='absolute text-2xl text-gray-400 dark:text-white bottom-5 left-2.5' />
 
                     <button
                         type='button'
                         onClick={() => setShowPassword(!showPassword)}
-                        className='absolute right-6 bottom-5 text-gray-400 text-2xl hover:text-gray-600'
+                        className='absolute right-6 bottom-5 text-gray-400 dark:text-white text-2xl hover:text-gray-600'
                         aria-label='Toggle password visibility'
                     >
                         {showPassword ? <FiEyeOff /> : <FiEye />}
@@ -89,7 +89,7 @@ export default function LoginPage() {
                 <button
                     type='submit'
                     disabled={loading || success}
-                    className={`w-70 md:w-90 hover:cursor-pointer ${success ? 'bg-green-500' : 'hover:bg-blue-600 bg-blue-500'} hover:shadow-gray-300 hover:shadow-lg text-white font-bold text-lg p-3 rounded-2xl flex items-center justify-center gap-3`}
+                    className={`w-70 md:w-90 hover:cursor-pointer ${success ? 'bg-green-500' : 'hover:bg-blue-600 bg-blue-500'} hover:shadow-gray-300 dark:hover:shadow-gray-900 hover:shadow-lg text-white font-bold text-lg p-3 rounded-2xl flex items-center justify-center gap-3`}
                 >
                     {loading && (
                         <span className='inline-block h-5 w-5 border-2 border-white border-t-transparent rounded-full animate-spin' />
@@ -105,7 +105,7 @@ export default function LoginPage() {
                 </button>
                 {error && <p className='text-red-600'>{error}</p>}
 
-                <p>Don't have an account?{""} <a href="/register" className='text-blue-600 underline'>Create account</a></p>
+                <p className="dark:text-white">Don't have an account?{""} <a href="/register" className='text-blue-600 underline'>Create account</a></p>
             </form>
         </div>
     )

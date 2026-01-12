@@ -18,7 +18,7 @@ export default function ThemeToggle() {
         <>
             <button
             onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
-            className="nav-btn dark:text-blue-600">
+            className="nav-btn dark:text-white">
                 {theme === 'dark' ? <FiSun /> : <FiMoon />} Theme
             </button>
         </>

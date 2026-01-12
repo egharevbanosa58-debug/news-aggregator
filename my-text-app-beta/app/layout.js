@@ -35,7 +35,7 @@ export default function RootLayout({ children }) {
 
 
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen "dark:bg-black bg-stone-50 transition-colors duration-200`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen dark:bg-blue-950 bg-stone-50 transition-colors duration-200`}
       >
         <ThemeProvider attribute="class" defaultTheme="light" enableSystem={false} storageKey="theme">
           <Analytics />
