@@ -228,7 +228,7 @@ export default function Dashboard() {
 
                                 
                             </div>
-                            <button onClick={() => signOut({ callbackUrl: "/DummyPage" })}><FiLogOut className="w-9 h-9 lg:w-10 lg:h-10 lg:rounded-xl lg:ml-auto p-2 hover:cursor-pointer relative rounded-xl text-red-600 dark:text-red-600 hover:bg-red-200" /></button>
+                            <button onClick={() => signOut({ callbackUrl: "/dummyPage" })}><FiLogOut className="w-9 h-9 lg:w-10 lg:h-10 lg:rounded-xl lg:ml-auto p-2 hover:cursor-pointer relative rounded-xl text-red-600 dark:text-red-600 hover:bg-red-200" /></button>
                         </nav>
                         <div className="flex ml-auto items-center gap-4">
                             <div className="profile lg:hidden">
@@ -274,7 +274,7 @@ export default function Dashboard() {
                                         <div className="line"></div>
                                         <button className="nav-btn dark:text-white"><FiUser />Profile</button>
                                         <ThemeToggle />
-                                        <button className="nav-btn text-red-600 dark:text-white dark:bg-red-500" onClick={() => signOut({ callbackUrl: "/DummyPage" })}><FiLogOut className="text-red-600 dark:text-white" />Logout </button>
+                                        <button className="nav-btn text-red-600 dark:text-white dark:bg-red-500" onClick={() => signOut({ callbackUrl: "/dummyPage" })}><FiLogOut className="text-red-600 dark:text-white" />Logout </button>
                                     </div>
                                 </div>
                             </div>
