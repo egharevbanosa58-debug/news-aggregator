@@ -170,12 +170,12 @@ export default function Dashboard() {
 
     if (status === 'loading') return <img src="/Dual-ball-loading.gif" alt="loading-animation" className="flex items-center justify-center bg-transparent z-999" />;
     if (status === 'unauthenticated') return (
-        <div className="justify-center items-center flex flex-col gap-20 min-h-screen">
+        <div className="justify-center items-center flex flex-col gap-20 min-h-screen text-black dark:text-white">
             <MdSignalWifiOff className="w-20 h-20 text-blue-600 mx-auto mt-40" />
             <span>
                 <h1 className="text-3xl dark:text-white">Oops Something wen't wrong</h1>
                 <br />
-                <p className="text-start dark:text-white">try:</p>
+                <p className="text-start dark:text-white ml-10">try:</p>
                 <ul className="dark:text-white">
                     <li>- <a href="/login" className="text-blue-600 underline">Logging in again</a></li>
                     <li>- Reloading the page</li>
@@ -210,7 +210,7 @@ export default function Dashboard() {
                                 </button>
                             ))}
 
-                            <div className="profile hidden lg:flex ml-auto z-999">
+                            <div className="profile hidden lg:flex ml-auto z-999 gap-3">
                                 <FiUser className="w-9 h-9 lg:w-10 lg:h-10 lg:rounded-xl lg:ml-auto p-2 hover:cursor-pointer relative fi-user border border-blue-300 rounded-xl text-blue-600 dark:border-white dark:text-white" />
 
                                 <div className="shadow rounded-xl bg-white dark:bg-blue-900 prof p-1.5 translate-y-12">
@@ -225,7 +225,10 @@ export default function Dashboard() {
                                         </button>
                                     </div>
                                 </div>
+
+                                
                             </div>
+                            <button onClick={() => signOut({ callbackUrl: "/DummyPage" })}><FiLogOut className="w-9 h-9 lg:w-10 lg:h-10 lg:rounded-xl lg:ml-auto p-2 hover:cursor-pointer relative rounded-xl text-red-600 dark:text-red-600 hover:bg-red-200" /></button>
                         </nav>
                         <div className="flex ml-auto items-center gap-4">
                             <div className="profile lg:hidden">
