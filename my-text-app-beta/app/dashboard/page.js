@@ -178,6 +178,7 @@ export default function Dashboard() {
                 <p className="text-start dark:text-white">try:</p>
                 <ul className="dark:text-white">
                     <li>- <a href="/login" className="text-blue-600 underline">Logging in again</a></li>
+                    <li>- Reloading the page</li>
                     <li>- Checking your internet connection</li>
                     <li>- Clearing your browser cache</li>
                 </ul>
