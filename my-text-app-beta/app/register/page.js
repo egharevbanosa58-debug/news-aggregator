@@ -53,7 +53,7 @@ export default function RegisterPage() {
 
 
     return (
-        <div className='min-h-screen overflow-hidden pt-16 lg:pb-16 lg:pt-20 flex flex-col items-center px-6 gap-6'>
+        <div className='min-h-screen overflow-hidden pt-16 lg:pb-16 lg:pt-20 flex flex-col items-center px-6 gap-6 text-black'>
 
             <Logo />
 

@@ -196,7 +196,7 @@ export default function Home() {
         <Logo className="scale-105" />
 
         <div className="text-center flex  flex-col gap-4">
-          <p className="text-3xl md:text-4xl lg:text-5xl font-medium">
+          <p className="text-3xl md:text-4xl lg:text-5xl font-medium text-black dark:text-white">
             Welcome to{" "}
             <span className="text-blue-600 font-semibold">News</span>
             <span className="bg-blue-600 text-white px-2 py-1 font-semibold">

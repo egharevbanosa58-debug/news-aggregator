@@ -4,7 +4,7 @@ import { useSession } from "next-auth/react"
 import Logo from "../components/Logo";
 import { FiUser, FiMenu, FiLogOut, FiSun, FiFlag, FiCpu, FiCoffee, FiChevronDown, FiChevronUp, FiSearch, FiExternalLink, FiFilter } from "react-icons/fi";
 import { FaBowlingBall, FaFire, FaFlask, FaListUl, FaSpinner } from "react-icons/fa";
-import { MdLocalMovies, MdSignalWifiOff } from "react-icons/md";
+import { MdHealthAndSafety, MdLocalMovies, MdSignalWifiOff } from "react-icons/md";
 import NewsCard from "../components/NewsCards";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { signOut } from "next-auth/react";
@@ -174,7 +174,7 @@ export default function Dashboard() {
             <MdSignalWifiOff className="w-20 h-20 text-blue-600 mx-auto mt-40" />
             <span>
                 <h1 className="text-3xl dark:text-white">Oops Something wen't wrong</h1>
-                <br/>
+                <br />
                 <p className="text-start dark:text-white">try:</p>
                 <ul className="dark:text-white">
                     <li>- <a href="/login" className="text-blue-600 underline">Logging in again</a></li>
@@ -188,11 +188,11 @@ export default function Dashboard() {
 
 
     return (
-        <main className={`${loading ? 'bg-stone/60' : ''} min-h-screen flex flex-col items-center px-2`}>
+        <main className={`${loading ? 'bg-stone/60' : ''} min-h-screen flex flex-col items-center px-2 text-black dark:text-white`}>
             <div className="items-center nav-banner dark:bg-blue-950/80 border-b-stone-200 w-full">
                 <div className="flex justify-between items-center w-full px-4 py-3">
                     {/* App LOGO */}
-                    <Logo className="scale-80 lg:scale-90 xl:scale-100 pt-5 flex mr-auto" />
+                    <Logo className="scale-65 lg:scale-90 xl:scale-100 flex ml-auto hover:shadow -translate-x-10 md:translate-x-0" />
 
                     <div className="flex justify-between gap-3 -mt-5 lg:mt-10 lg:mb-7 ml-auto mr-5">
 
@@ -283,7 +283,7 @@ export default function Dashboard() {
 
 
                 {/* The search bar goes here */}
-                <div className="input-field flex justify-center items-center">
+                <div className="input-field flex justify-center items-center pb-3">
                     <input
                         type="text"
                         value={query}
@@ -295,7 +295,7 @@ export default function Dashboard() {
                                 fetchSearchRes();
                             }
                         }}
-                        className="h-10 w-50 md:w-80 pl-10 pr-4 mb-5 rounded-3xl text-blue-600 dark:text-white border relative border-blue-600 dark:border-white focus:outline-none ml-25 lg:ml-100 lg:h-13 transition-all focus:w-70 focus:shadow-md md:focus:w-100" />
+                        className="h-10 w-[90%] md:w-[50%] lg:w-[20%] pl-10 pr-4 mb-5 rounded-3xl text-blue-600 dark:text-white border relative border-blue-600 dark:border-white duration-500 focus:outline-none ml-25 lg:ml-100 lg:h-13 transition-transform focus:w-70 focus:shadow-md md:focus:w-100 lg:focus:w-130" />
                     {/* <div className="pointer-events-none pl-3 items-center absolute inset-y-0 left-45 search-icon">
                         <FiSearch className="text-blue-600 text-xl p-2 w-8 h-8 border-r" />
                     </div> */}
@@ -316,10 +316,12 @@ export default function Dashboard() {
 
 
 
-            <div className="translate-y-15 grid grid-cols-1 md:grid-cols-2 gap-3 pt-30 overflow-hidden lg:px-64 pb-64">
+            <div className="translate-y-6 grid grid-cols-1 md:grid-cols-2 gap-3 pt-30 overflow-hidden lg:px-64 pb-64">
                 <div className="p-4 col-span-1 md:col-span-2" ref={filterRef}>
                     <div className="flex items-center gap-3">
-                        <button onClick={() => setFilterOpen((s) => !s)}><FiFilter className="w-8 h-8 md:w-10 md:h-10 lg:w-12 lg:h-12 p-2 bg-white dark:bg-neutral-900 hover:bg-blue-100 text-blue-600 rounded-xl border" /></button>
+                        <button onClick={() => setFilterOpen((s) => !s)}>
+                            <FiFilter className="w-8 h-8 md:w-10 md:h-10 lg:w-12 lg:h-12 p-2 bg-white dark:bg-blue-950 hover:bg-blue-100 text-blue-600 rounded-xl border" />
+                        </button>
                         <span className="text-md text-blue-500 px-3">{selectedSource === 'all' ? 'All' : selectedSource}</span>
                     </div>
 
@@ -363,8 +365,7 @@ export default function Dashboard() {
             </div>
 
             <div className="flex flex-col w-full">
-                {/* <h2>What's the health update in <span className="text-blue-700">The</span> United <span className="text-red-600">States?</span></h2> */}
-                {/* <p className="text-sm text-stone-500">More news articles from Nigeria</p> */}
+                <h2 className="text-xl md:text-2xl font-semibold inline-flex items-center"><MdHealthAndSafety className="text-red-600 dark:text-red-600" />Health Updates in The United States?</h2>
                 {moreResults.length > 0 && (
                     <div className="slider-container flex h-fit px-4">
                         {moreResults.map((article, index) => (
