@@ -18,7 +18,7 @@ export default function RegisterPage() {
         e.preventDefault();
         setError(null);
         setLoading(true);
-        alert("Data leaks will likely occur");
+        alert("Heads up! This app uses token-based sign-in so your login details aren’t saved permanently. You might be asked to sign in again later.");
 
         const name = e.target.name.value;
         const email = e.target.email.value;
