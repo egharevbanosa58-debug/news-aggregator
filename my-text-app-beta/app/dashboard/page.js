@@ -172,7 +172,7 @@ export default function Dashboard() {
     if (status === 'unauthenticated') return (
         <div className="justify-center items-center flex flex-col gap-20 min-h-screen text-black dark:text-white">
             <MdSignalWifiOff className="w-20 h-20 text-blue-600 mx-auto mt-40" />
-            <span>
+            <span className="ml-10">
                 <h1 className="text-3xl dark:text-white">Oops Something wen't wrong</h1>
                 <br />
                 <p className="text-start dark:text-white ml-10">try:</p>
