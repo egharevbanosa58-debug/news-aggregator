@@ -9,6 +9,7 @@ import NewsCard from "../components/NewsCards";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { signOut } from "next-auth/react";
 import ThemeToggle from "../components/ThemeToggle";
+import { useRouter } from "next/navigation";
 
 
 const CATEGORIES = [
@@ -23,6 +24,7 @@ const CATEGORIES = [
 export default function Dashboard() {
     const { data: session, status } = useSession();
 
+    const router = useRouter();
     const [feed, setFeed] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState("");
@@ -228,7 +230,7 @@ export default function Dashboard() {
 
                                 
                             </div>
-                            <button onClick={() => signOut({ callbackUrl: "/dummyPage" })}><FiLogOut className="w-9 h-9 lg:w-10 lg:h-10 lg:rounded-xl lg:ml-auto p-2 hover:cursor-pointer relative rounded-xl text-red-600 dark:text-red-600 hover:bg-red-200" /></button>
+                            <button onClick={async () => {await signOut({redirect : false}); router.push("/dummyPage")}}><FiLogOut className="w-9 h-9 lg:w-10 lg:h-10 lg:rounded-xl lg:ml-auto p-2 hover:cursor-pointer relative rounded-xl text-red-600 dark:text-red-600 hover:bg-red-200" /></button>
                         </nav>
                         <div className="flex ml-auto items-center gap-4">
                             <div className="profile lg:hidden">
@@ -274,7 +276,7 @@ export default function Dashboard() {
                                         <div className="line"></div>
                                         <button className="nav-btn dark:text-white"><FiUser />Profile</button>
                                         <ThemeToggle />
-                                        <button className="nav-btn text-red-600 dark:text-white dark:bg-red-500" onClick={() => signOut({ callbackUrl: "/dummyPage" })}><FiLogOut className="text-red-600 dark:text-white" />Logout </button>
+                                        <button className="nav-btn text-red-600 dark:text-white dark:bg-red-900" onClick={async () => {await signOut({redirect : false});router.push("/dummyPage")} }><FiLogOut className="text-red-600 dark:text-white" />Logout </button>
                                     </div>
                                 </div>
                             </div>
