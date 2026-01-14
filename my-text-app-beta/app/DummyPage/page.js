@@ -7,8 +7,8 @@ export default function DummyPage(){
             <p className="text-xl md:text-2xl text-red-600">You Logged out</p>
 
             <div className="flex gap-4">
-                <a href="/login"><button className="hover:shadow-lg p-3 rounded-xl text-md md:text-lg text-red-600 border border-red-600 bg-transparent">Log Back in</button></a>
-                <a href="/"><button className="hover:shadow-lg p-3 rounded-xl text-md md:text-lg text-white bg-red-600">Return To Home Page</button></a>
+                <a href="/login" className="hover:shadow-lg p-3 rounded-xl text-md md:text-lg text-red-600 border border-red-600 bg-transparent inline-block">Log Back in</a>
+                <a href="/" className="hover:shadow-lg p-3 rounded-xl text-md md:text-lg text-white bg-red-600 inline-block">Return To Home Page</a>
             </div>
         </div>
     )
