@@ -312,7 +312,7 @@ export default function Dashboard() {
                     {searchResults.length > 0 && open && (
                         <ul ref={resultsRef} className=" transform translate-y-55 absolute p-4 z-999 flex flex-col gap-3 bg-white dark:bg-neutral-800 shadow-lg rounded-2xl search-results max-h-100 overflow-y-auto border border-blue-100 mx-4">
                             {searchResults.map((article, index) => (
-                                <li key={index} className="px-1 py-2 justify-between rounded-xl flex gap-3 items-center hover:bg-gray-200 cursor-pointer text-md font-medium border-b border-blue-200 hover:shadow"><FaListUl className="text-blue-600" /><a href={article.url} target="_self">{article.title.length > 30 ? article.title.slice(0, 40) + "..." : article.title}</a><span className="text-sm text-stone-400 ml-auto">source: {article.source.name}</span><FiExternalLink className="ml-auto text-blue-400" /></li>
+                                <li key={index} className="px-1 py-2 justify-between rounded-xl flex gap-3 items-center hover:bg-gray-200 cursor-pointer text-md font-medium border-b border-blue-200 hover:shadow"><FaListUl className="text-blue-600" /><a href={article.url} target="_self">{article.title.length > 30 ? article.title.slice(0, 40) + "..." : article.title}</a><span className="text-sm text-stone-400 ml-auto">source: {article.source?.name || "Unknown"}</span><FiExternalLink className="ml-auto text-blue-400" /></li>
                             ))}
                         </ul>
                     )}
