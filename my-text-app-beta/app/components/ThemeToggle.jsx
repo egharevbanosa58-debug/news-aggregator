@@ -5,9 +5,10 @@ import { FiSun, FiMoon } from "react-icons/fi";
 import { useEffect, useState } from "react";
 
 export default function ThemeToggle() {
-    const { theme, setTheme } = useTheme();
+    const { resolvedTheme, setTheme } = useTheme();
     const [mounted, setMounted] = useState(false);
 
+    //Prevent hydration mismatch
     useEffect(() => {
         setMounted(true);
     }, []);
@@ -17,9 +18,11 @@ export default function ThemeToggle() {
     return (
         <>
             <button
-            onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
+            onClick={() => setTheme(resolvedTheme === 'dark' ? 'light' : 'dark')}
             className="nav-btn dark:text-white">
-                {theme === 'dark' ? <FiSun /> : <FiMoon />} Theme
+                {resolvedTheme === 'dark' ? (<FiSun className="text-yellow-400"/>) : (<FiMoon className="
+                text-blue-600"/>)} Theme
+                <span className="sr-only">Theme Toggle</span>
             </button>
         </>
     );

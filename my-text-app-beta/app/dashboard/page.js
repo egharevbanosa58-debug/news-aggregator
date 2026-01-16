@@ -87,6 +87,7 @@ export default function Dashboard() {
             const data1 = await res.json();
             console.log("Response: ", data1); //Debug log
             setSearchResults(data1.articles || []);
+            // if (searchResults === null || []) return console.log(`No results found for '${q}'`)
 
         } catch (err) {
             console.error("Search Fetch Error: ", err.message);
@@ -142,7 +143,7 @@ export default function Dashboard() {
     }, [status, selectedCategory]);
 
 
-    //useEffect for Nigeria more results
+    //useEffect for Health more results
     useEffect(() => {
         if (status !== "authenticated") return; // Ensure user is authenticated
 
@@ -191,7 +192,8 @@ export default function Dashboard() {
 
 
     return (
-        <main className={`${loading ? 'bg-stone/60' : ''} min-h-screen flex flex-col items-center px-2 text-black dark:text-white`}>
+        <main className="min-h-screen flex flex-col items-center px-2 text-black dark:text-white">
+            {loading && (<div className="fixed inset-0 bg-black/30 z-50"/>)}
             <div className="items-center nav-banner dark:bg-blue-950/80 border-b-stone-200 w-full">
                 <div className="flex justify-between items-center w-full px-4 py-3">
                     {/* App LOGO */}
@@ -274,8 +276,8 @@ export default function Dashboard() {
 
 
                                         <div className="line"></div>
-                                        <button className="nav-btn dark:text-white"><FiUser />Profile</button>
-                                        <ThemeToggle />
+                                        <button className="nav-btn dark:text-white"><FiUser />Profile -  {session.user.email}</button>
+                                        {/* <ThemeToggle /> */}
                                         <button className="nav-btn text-red-600 dark:text-white dark:bg-red-900" onClick={async () => {await signOut({redirect : false});router.push("/dummyPage")} }><FiLogOut className="text-red-600 dark:text-white" />Logout </button>
                                     </div>
                                 </div>
@@ -309,11 +311,15 @@ export default function Dashboard() {
 
 
                     {/* {error && <p className="text-red-600">Error : {error} by NOsa</p>} */}
-                    {searchResults.length > 0 && open && (
+                    {searchResults && Array.isArray(searchResults) && open && (
                         <ul ref={resultsRef} className=" transform translate-y-55 absolute p-4 z-999 flex flex-col gap-3 bg-white dark:bg-neutral-800 shadow-lg rounded-2xl search-results max-h-100 overflow-y-auto border border-blue-100 mx-4">
-                            {searchResults.map((article, index) => (
-                                <li key={index} className="px-1 py-2 justify-between rounded-xl flex gap-3 items-center hover:bg-gray-200 cursor-pointer text-md font-medium border-b border-blue-200 hover:shadow"><FaListUl className="text-blue-600" /><a href={article.url} target="_self">{article.title.length > 30 ? article.title.slice(0, 40) + "..." : article.title}</a><span className="text-sm text-stone-400 ml-auto">source: {article.source?.name || "Unknown"}</span><FiExternalLink className="ml-auto text-blue-400" /></li>
-                            ))}
+                            {searchResults?.map((article, index) => {
+                                if (!article || !article.title) return null;
+                                // if (!searchResults) return console.log(`No results found for ${query}`);
+                                return (
+                                    <li key={index} className="px-1 py-2 justify-between rounded-xl flex gap-3 items-center hover:bg-gray-200 cursor-pointer text-md font-medium border-b border-blue-200 hover:shadow"><FaListUl className="text-blue-600" /><a href={article.url} target="_self">{typeof article.title === "string" && article.title.length > 30 ? article.title.slice(0, 40) + "..." : article.title}</a><span className="text-sm text-stone-400 ml-auto">source: {article.source?.name || "Unknown"}</span><FiExternalLink className="ml-auto text-blue-400" /></li>
+                                );
+                            })}
                         </ul>
                     )}
                 </div>
@@ -364,21 +370,27 @@ export default function Dashboard() {
                         <img src="/Dual-ball-loading.gif" alt="loading" className="mx-auto my-10" />
                     </div>
                 ) : (
-                    filteredFeed.map((article, index) => (
-                        <a key={index} href={article.url}><NewsCard article={article} /></a>
-                    ))
+                    filteredFeed && filteredFeed.length > 0 ? filteredFeed.map((article, index) => {
+                        if (!article) return null;
+                        return (
+                            <a key={index} href={article.url}><NewsCard article={article} /></a>
+                        );
+                    }) : <p className="col-span-2 text-center text-gray-500">No articles found</p>
                 )}
             </div>
 
             <div className="flex flex-col w-full">
                 <h2 className="text-xl md:text-2xl font-semibold inline-flex items-center"><MdHealthAndSafety className="text-red-600 dark:text-red-600" />Health Updates in The United States?</h2>
-                {moreResults.length > 0 && (
+                {moreResults && Array.isArray(moreResults) && moreResults.length > 0 && (
                     <div className="slider-container flex h-fit px-4">
-                        {moreResults.map((article, index) => (
-                            <a className="cards" key={index} href={article.url}>
-                                <NewsCard article={article} />
-                            </a>
-                        ))}
+                        {moreResults.map((article, index) => {
+                            if (!article) return null;
+                            return (
+                                <a className="cards" key={index} href={article.url}>
+                                    <NewsCard article={article} />
+                                </a>
+                            );
+                        })}
                     </div>
                 )}
             </div>

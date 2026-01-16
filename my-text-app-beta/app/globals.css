@@ -55,10 +55,6 @@ body {
   gap: 0.5rem;
   align-items: center;
 }
-.nav-btn:hover{
-  /* background-color: rgba(190, 228, 248, 0.373); */
-  
-}
 
 .line{
   width: 95%;
