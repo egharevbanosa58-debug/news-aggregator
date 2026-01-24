@@ -8,7 +8,7 @@ export default function Providers({ children }) {
         <SessionProvider>
             <ThemeProvider
                 attribute="class"
-                defaultTheme="system"
+                defaultTheme="light"
                 enableSystem={false}
             >
                 {children}

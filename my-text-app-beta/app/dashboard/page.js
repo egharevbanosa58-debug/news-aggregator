@@ -276,8 +276,8 @@ export default function Dashboard() {
 
 
                                         <div className="line"></div>
-                                        <button className="nav-btn dark:text-white"><FiUser />Profile -  {session.user.email}</button>
-                                        {/* <ThemeToggle /> */}
+                                        <button className="nav-btn dark:text-white"><FiUser />Profile -  {session.user.email.length > 10 ? session.user.email.slice(0, 10) + "..." : session.user.email}</button>
+                                        <ThemeToggle />
                                         <button className="nav-btn text-red-600 dark:text-white dark:bg-red-900" onClick={async () => {await signOut({redirect : false});router.push("/dummyPage")} }><FiLogOut className="text-red-600 dark:text-white" />Logout </button>
                                     </div>
                                 </div>
