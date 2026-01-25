@@ -2,6 +2,7 @@
 
 import { useSession } from "next-auth/react"
 import Logo from "../components/Logo";
+import DummyPage from "../DummyPage/page";
 import { FiUser, FiMenu, FiLogOut, FiSun, FiFlag, FiCpu, FiCoffee, FiChevronDown, FiChevronUp, FiSearch, FiExternalLink, FiFilter } from "react-icons/fi";
 import { FaBowlingBall, FaFire, FaFlask, FaListUl, FaSpinner } from "react-icons/fa";
 import { MdHealthAndSafety, MdLocalMovies, MdSignalWifiOff } from "react-icons/md";
@@ -278,7 +279,7 @@ export default function Dashboard() {
                                         <div className="line"></div>
                                         <button className="nav-btn dark:text-white"><FiUser />Profile -  {session.user.email.length > 10 ? session.user.email.slice(0, 10) + "..." : session.user.email}</button>
                                         <ThemeToggle />
-                                        <button className="nav-btn text-red-600 dark:text-white dark:bg-red-900" onClick={async () => {await signOut({redirect : false});router.push("/dummyPage")} }><FiLogOut className="text-red-600 dark:text-white" />Logout </button>
+                                        <button className="nav-btn text-red-600 dark:text-red-600 dark:bg-blue-950/70" onClick={async () => {await signOut({redirect : false});router.push("/DummyPage")} }><FiLogOut className="text-red-600 dark:text-red-600" />Logout </button>
                                     </div>
                                 </div>
                             </div>
