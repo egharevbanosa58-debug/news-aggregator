@@ -20,7 +20,7 @@
 
 
 export default function sitemap() {
-    const BASE_URL = 'https://newslitenews.vercel.app/';
+    const BASE_URL = 'https://newslitenews.vercel.app';
 
     return [
         {
