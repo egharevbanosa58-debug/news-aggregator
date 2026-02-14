@@ -189,6 +189,7 @@ import Logo from "./components/Logo";
 export default function Home() {
   return (
     <main className="min-h-screen flex flex-col items-center px-6 pt-12 text-black dark:text-white">
+    <meta name="google-site-verification" content="Kk5vSEjBvDnyy9uV-ToRRSxgZaZ5i_KgxtY2MalsMj0" />
 
       {/* Content wrapper */}
       <div className="flex flex-col items-center gap-12 flex-grow">

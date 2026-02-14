@@ -233,7 +233,9 @@ export default function Dashboard() {
 
                                 
                             </div>
-                            <button onClick={async () => {await signOut({redirect : false}); router.push("/dummyPage")}}><FiLogOut className="w-9 h-9 lg:w-10 lg:h-10 lg:rounded-xl lg:ml-auto p-2 hover:cursor-pointer relative rounded-xl text-red-600 dark:text-red-600 hover:bg-red-200" /></button>
+                            <button onClick={async () => {await signOut({redirect : false}); router.push("/DummyPage")}}><FiLogOut className="w-9 h-9 lg:w-10 lg:h-10 lg:rounded-xl lg:ml-auto p-2 hover:cursor-pointer relative rounded-xl text-red-600 dark:text-red-600 hover:bg-red-200" /></button>
+                            <ThemeToggle btnStyle="text-2xl"/>
+                            
                         </nav>
                         <div className="flex ml-auto items-center gap-4">
                             <div className="profile lg:hidden">
@@ -278,7 +280,7 @@ export default function Dashboard() {
 
                                         <div className="line"></div>
                                         <button className="nav-btn dark:text-white"><FiUser />Profile -  {session.user.email.length > 10 ? session.user.email.slice(0, 10) + "..." : session.user.email}</button>
-                                        <ThemeToggle />
+                                        <ThemeToggle text="Theme" navBtnStyle="nav-btn"/>
                                         <button className="nav-btn text-red-600 dark:text-red-600 dark:bg-blue-950/70" onClick={async () => {await signOut({redirect : false});router.push("/DummyPage")} }><FiLogOut className="text-red-600 dark:text-red-600" />Logout </button>
                                     </div>
                                 </div>
