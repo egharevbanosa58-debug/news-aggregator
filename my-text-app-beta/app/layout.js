@@ -22,8 +22,14 @@ export const metadata = {
     follow: false,
   },
 
+  metadataBase: new URL('https://newslitenews.vercel.app/'),
+  alternates: {
+    canonical: '/',
+  },
+
   title: "NewsLite news aggregator",
   description: "A News aggregator web app created by NOSA",
+  images: [{ url: '/NewsLite.PNG'}],
 };
 
 export default function RootLayout({ children }) {
