@@ -193,8 +193,9 @@ export default function Dashboard() {
 
 
     return (
-        <main className="min-h-screen flex flex-col items-center px-2 text-black dark:text-white">
+        <main className="scroll-smooth relative min-h-screen flex flex-col items-center px-2 text-black dark:text-white">
             {loading && (<div className="fixed inset-0 bg-black/30 z-50"/>)}
+            <button onClick={() => {document.getElementById("section").scrollIntoView({ behavior: "smooth" })}} className="p-3 cursor-pointer z-10 rounded-2xl bg-blue-600 fixed bottom-5 right-5 text-white" ><FiChevronUp className="h-8 md:h-10 w-8 md:w-10" /></button>
             <div className="items-center nav-banner dark:bg-blue-950/80 border-b-stone-200 w-full">
                 <div className="flex justify-between items-center w-full px-4 py-3">
                     {/* App LOGO */}
@@ -331,7 +332,7 @@ export default function Dashboard() {
 
 
 
-            <div className="translate-y-6 grid grid-cols-1 md:grid-cols-2 gap-3 pt-30 overflow-hidden lg:px-64 pb-64">
+            <div id="section" className="translate-y-6 grid grid-cols-1 md:grid-cols-2 gap-3 pt-30 overflow-hidden lg:px-64 pb-64">
                 <div className="p-4 col-span-1 md:col-span-2" ref={filterRef}>
                     <div className="flex items-center gap-3">
                         <button onClick={() => setFilterOpen((s) => !s)}>
